@@ -1,0 +1,54 @@
+﻿@model Lab6.App_Start.Context
+@{
+    ViewBag.Title = "Teacher Table";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<body>
+    <div>
+        <table style="width: 100%">
+            <tr>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>School</th>
+            </tr>
+            @foreach (var item in Model.Teacher.ToList())
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.first_name</td>
+                    <td>@item.last_name</td>
+                    <td>@item.age</td>
+                    <td>@item.gender</td>
+                    <td>@item.School.name</td>
+                    <td><a href="/Teacher/Delete/@item.id/" role="button"><span aria-hidden="true">delete</span></a></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <a class="btnbtn-primary" href="/Teacher/AddTeacher" role="button">Add new Teacher</a>
+    </div>
+
+    @using (Html.BeginForm("Update", "Teacher"))
+    {
+        <h6>Update teacher</h6>
+        <label>id</label>
+        <input type="text" name="id" id="id" value="" />
+        <label>First Name</label>
+        <input type="text" name="first_name" id="first_name" value="" />
+        <label>Last Name</label>
+        <input type="text" name="last_name" id="last_name" value="" />
+        <label>Age</label>
+        <input type="text" name="age" id="age" value="" />
+        <label>Gender</label>
+        <input type="text" name="gender" id="gender" value="" />
+        <label>School id</label>
+        <input type="text" name="schoolId" id="schoolId" value="" />
+        <input type="submit" value="Update" />
+    }
+</body>

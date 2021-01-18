@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Add subject";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form method="post" action="">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Please insert subject name">
+    </div>
+    <div class="form-group">
+        <label for="budget">Coefficient</label>
+        <input type="text" class="form-control" name="coefficient" id="coefficient" placeholder="Please insert coefficient">
+    </div>
+    <div class="form-group">
+        <label for="budget">Duration</label>
+        <input type="text" class="form-control" name="duration" id="duration" placeholder="Please insert duration">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+

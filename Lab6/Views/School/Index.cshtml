@@ -1,0 +1,42 @@
+﻿@model Lab6.App_Start.Context
+@{
+    ViewBag.Title = "School Table";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<body>
+    <div>
+        <table style="width: 100%">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Year</th>
+            </tr>
+            @foreach (var item in Model.School.ToList())
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.year</td>
+                    <td><a href="/School/Delete/@item.id/" role="button"><span aria-hidden="true">delete</span></a></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <a class="btnbtn-primary" href="/School/AddSchool" role="button">Add new school</a>
+    </div>
+
+    @using (Html.BeginForm("Update", "School"))
+    {
+        <h6>Update school</h6>
+        <label>id</label>
+        <input type="text" name="id" id="id" value="" />
+        <label>School name</label>
+        <input type="text" name="name" id="name" value="" />
+        <label>Year</label>
+        <input type="text" name="year" id="year" value="" />
+        <input type="submit" value="Update" />
+    }
+</body>
